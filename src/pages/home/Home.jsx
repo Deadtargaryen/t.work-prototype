@@ -53,6 +53,29 @@ const Home = () => {
             </div>
         </div>
       </div>
+      <div className="features">
+        <div className="container">
+          <div className="item">
+          <h1>t.work business</h1>
+          <h1>An innovative team-oriented business solution.</h1>
+          <p>Embrace a bespoke business experience, teeming with tailored tools and exclusive perks.</p>
+          <div className="title">
+            <img src="/public/img/check.png" alt="" />
+            Connect with diverse freelancers for top-notch project support.
+          </div><div className="title">
+            <img src="/public/img/check.png" alt="" />
+            Find perfect talent with help from our manager.
+          </div><div className="title">
+            <img src="/public/img/check.png" alt="" />
+            Enhance productivity and teamwork with a single, powerful workspace.
+          </div>
+          <button>Explore t<span className='dott'>.</span>work Business</button>
+          </div>
+            <div className="item">
+             <img src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_870,dpr_1.0/v1/attachments/generic_asset/asset/d9c17ceebda44764b591a8074a898e63-1599597624757/business-desktop-870-x1.png" alt="" />
+            </div>
+        </div>
+      </div>
     </div>
   )
 }
