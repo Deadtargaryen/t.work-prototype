@@ -35,14 +35,14 @@ const Home = () => {
               Quality services, fixed project-based pricing, no hourly rates!
             </p>
           <div className="title">
-            <img src="/public/img/check.png" alt="" />
+            <img src="/img/check.png" alt="" />
             Top-notch quality, regardless of your budget!
           </div>
             <p>
               Quality services, fixed project-based pricing, no hourly rates!
             </p>
           <div className="title">
-            <img src="/public/img/check.png" alt="" />
+            <img src="/img/check.png" alt="" />
             Top-notch quality, regardless of your budget!
           </div>
             <p>
@@ -61,13 +61,13 @@ const Home = () => {
           <h1>An innovative team-oriented business solution.</h1>
           <p>Embrace a bespoke business experience, teeming with tailored tools and exclusive perks.</p>
           <div className="title">
-            <img src="/public/img/check.png" alt="" />
+            <img src="/img/check.png" alt="" />
             Connect with diverse freelancers for top-notch project support.
           </div><div className="title">
-            <img src="/public/img/check.png" alt="" />
+            <img src="/img/check.png" alt="" />
             Find perfect talent with help from our manager.
           </div><div className="title">
-            <img src="/public/img/check.png" alt="" />
+            <img src="/img/check.png" alt="" />
             Enhance productivity and teamwork with a single, powerful workspace.
           </div>
           <button>Explore t<span className='dott'>.</span>work Business</button>
