@@ -57,7 +57,7 @@ const Home = () => {
       <div className="features dark">
         <div className="container">
           <div className="item">
-          <h1>t.work business</h1>
+          <h1>t <span className="dot">.</span>work business</h1>
           <h1>An innovative team-oriented business solution.</h1>
           <p>Embrace a bespoke business experience, teeming with tailored tools and exclusive perks.</p>
           <div className="title">
