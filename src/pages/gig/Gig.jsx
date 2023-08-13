@@ -53,7 +53,7 @@ const Gig = () => {
             <h2>About the seller</h2>
             <div className='user'>
               <img
-                src='https://images.pexels.com/photos/720327/pexels-photo-720327.jpeg?auto=compress&cs=tinysrgb&w=1600'
+                src='https://ik.imagekit.io/twork/alexander-hipp-iEEBWgY_6lA-unsplash__1_.jpg?updatedAt=1689415721528'
                 alt=''
               />
               <div className='info'>
