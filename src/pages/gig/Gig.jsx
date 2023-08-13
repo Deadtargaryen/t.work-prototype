@@ -202,10 +202,46 @@ const Gig = () => {
                 <span>No</span>
               </div>
             </div>
-            <hr/>
           </div>
         </div>
-        <div className='right'></div>
+        <div className='right'>
+          <div className="price">
+            <h3>1 AI generarted image</h3>
+            <h2>$ 59.99</h2>
+          </div>
+          <p>I will create high quality AI generated 
+            image based on the descrption you give me
+          </p>
+          <div className="details">
+            <div className="item">
+            <img src="/img/clock.png" alt="" />
+            <span>2 days Delivery</span>
+            </div>
+            <div className="item">
+            <img src="/img/recycle.png" alt="" />
+            <span>3 Revisions</span>
+            </div>
+          </div>
+          <div className="features">
+            <div className="item">
+              <img src="/img/greencheck.png" alt="" />
+              <span>Prompt Writing</span>
+            </div>
+            <div className="item">
+              <img src="/img/greencheck.png" alt="" />
+              <span>Artwork Delivery</span>
+            </div>
+            <div className="item">
+              <img src="/img/greencheck.png" alt="" />
+              <span>Image upscaling</span>
+            </div>
+            <div className="item">
+              <img src="/img/greencheck.png" alt="" />
+              <span>Additional Design</span>
+            </div>
+          </div>
+          <button>Continue</button>
+        </div>
       </div>
     </div>
   )

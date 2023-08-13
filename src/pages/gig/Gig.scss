@@ -52,6 +52,7 @@
                         color: #ffc108;
                     }
                 }
+
             }
 
             .slider{
@@ -185,12 +186,43 @@
                             }
                         }
                     }
+
+                    .stars{
+                        display: flex;
+                        gap: 5px;
+        
+                        img{
+                            width: 14px;
+                            height: 14px;
+                        }
+        
+                        span{
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: #ffc108;
+                        }
+                    }
+                    .helpful{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        img{
+                            width: 14px;
+                        }
+                    }
                 }
+            hr{
+                height: 0;
+                border: .5px solid lightgray;
+                margin: 50px 0px;
             }
         }
-
+    }
         .right{
             flex: 1;
+            border: 1px solid lightgray;
         }
-    }
+    
+}
 }
