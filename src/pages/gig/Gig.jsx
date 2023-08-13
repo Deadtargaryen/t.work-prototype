@@ -100,7 +100,7 @@ const Gig = () => {
             <h2>Reviews</h2>
             <div className="item">
               <div className="user">
-                <img src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+                <img className='pp' src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
                 <div className="info">
                   <span>John Doe</span>
                   <div className="country">
@@ -135,7 +135,7 @@ const Gig = () => {
             <hr/>
             <div className="item">
               <div className="user">
-                <img src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+                <img className='pp' src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
                 <div className="info">
                   <span>John Doe</span>
                   <div className="country">
@@ -170,7 +170,7 @@ const Gig = () => {
             <hr/>
             <div className="item">
               <div className="user">
-                <img src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+                <img className='pp' src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
                 <div className="info">
                   <span>John Doe</span>
                   <div className="country">
