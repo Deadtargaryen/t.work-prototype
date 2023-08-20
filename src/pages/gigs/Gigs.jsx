@@ -15,7 +15,7 @@ const Gigs = () => {
   return (
     <div className='gigs'>
       <div className='container'>
-        <span className='breadcrumbs'>TWORK &gt; GRAPHICS & DESIGN &gt;</span>
+        <span className='breadcrumbs'>t.work &gt; Graphics & Design &gt;</span>
         <h1>AI Artists</h1>
         <p>Explore the boundary of art and tech with t<span className='dot'>.</span>work&#39;s AI artists</p>
         <div className='menu'>
