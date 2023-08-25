@@ -1,0 +1,88 @@
+.message{
+    display: flex;
+    justify-content: center;
+    .container{
+        width: 1200px;
+        margin: 50px;
+
+        .breadcrumbs{
+            font-weight: 300;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .messages{
+            margin: 30px 0px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: 500px;
+            overflow-x: scroll hidden;
+            overflow-y: scroll;
+
+            .item{
+                display: flex;
+                gap: 20px;
+                max-width: 600px;
+                font-size: 18px;
+
+                &.owner{
+                    flex-direction: row-reverse;
+                    align-self: flex-end;
+
+                    p{
+                        border-radius: 20px 0px 20px 20px;
+                        background-color: #000000;
+                        color: #fff;
+                    }
+                }
+                img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+
+                p{
+                    padding: 20px;
+                    background-color: #f7f2f2;
+                    border-radius: 0px 20px 20px 20px;
+                    color: rgb(83, 83, 83);
+                    font-weight: 400;
+                }
+            }
+        }
+
+
+        hr{
+            height: 0;
+            border: 0.5px solid #f5eeee;
+            margin-bottom: 20px;
+        }
+        .write{
+            display: flex;
+            justify-content: space-between;
+
+            textarea{
+                width: 80%;
+                height: 100px;
+                padding: 10px;
+                border: 1px solid lightgray;
+                border-radius: 10px;
+            }
+
+            button{
+                background-color: #3426f1;
+                padding: 20px;
+                color: #fff;
+                font-weight: 500;
+                border: none;
+                border-radius: 40px;
+                cursor: pointer;
+                width: 100px;
+                height: 50px;
+            }
+        }
+    }
+}
