@@ -23,6 +23,10 @@ const ConversationSchema = new Schema({
   type: Boolean,
   required: true,
  },
+ lastMessage: {
+  type: Boolean,
+  required: false,
+ },
 }, {
     timestamps: true
 });
