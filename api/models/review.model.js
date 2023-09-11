@@ -13,16 +13,9 @@ const ReviewSchema = new Schema({
   star:{
     type: Number,
     required: true,
+    enum: [1,2,3,4,5]
   },
-  gigId:{
-    type: String,
-    required: true,
-  },
-  gigId:{
-    type: String,
-    required: true,
-  },
-  gigId:{
+  desc:{
     type: String,
     required: true,
   },
