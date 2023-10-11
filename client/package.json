@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.5.1",
     "dotenv": "^16.3.1",
     "infinite-react-carousel": "^1.2.11",
     "mongoose": "^7.4.4",
