@@ -9,8 +9,10 @@ import Orders from "./pages/orders/Orders"
 import Messages from "./pages/messages/Messages"
 import Message from "./pages/message/Message"
 import MyGigs from "./pages/myGigs/MyGigs"
+import Login from "./pages/login/Login"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import "./app.scss" 
+
 
 function App() {
 
@@ -62,6 +64,10 @@ function App() {
         {
           path:"/message/:id",
           element: <Message/>
+        },
+        {
+          path:"/login",
+          element: <Login/>
         },
       ]
     },
