@@ -9,18 +9,29 @@ const Login = () => {
 
 const handleSubmit = async (e)=>{
   e.preventDefault()
-  const res = await axios.post('localhost:8800/api/auth/login', {username, password})
+  try{
+    
+    
+    const res = await axios.post('http://localhost:8800/api/auth/login', {
+      username, 
+      password,
+    }, {withCredentials:true})
+    console.log(res.data)
+  }catch(err){
+    setError(err)
+    console.log(err)
+  }
 }
 
   return (
     <div className='login'>
       <form onSubmit={handleSubmit}>
         <h1>Sign in</h1>
-        <label htmlFor=''>Username</label>
-        <input name='Username' type="text" placeholder='johndoe' onChange={e=>setUsername(e.target.value)}/>
+        <label htmlFor='username'>Username</label>
+        <input name='Username' id='username' type="text" placeholder='johndoe' onChange={e=>setUsername(e.target.value)} aria-labelledby="username" required/>
 
-        <label htmlFor=''>Password</label>
-        <input type="password" name="Password" placeholder='********' onChange={e=>setPassword(e.target.value)}/>
+        <label htmlFor='password'>Password</label>
+        <input type="password" id='password' name="Password" placeholder='********' onChange={e=>setPassword(e.target.value)} aria-labelledby="password   " required/>
 
         <button type='submit'>Login</button>
       </form>
