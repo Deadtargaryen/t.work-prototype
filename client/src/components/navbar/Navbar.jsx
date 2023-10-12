@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./Navbar.scss"
-import { Link, useLocation } from 'react-router-dom'
+import { Link, Navigate, useLocation } from 'react-router-dom'
+import newRequest from '../../utils/newRequest.js'
+import { useNavigate } from 'react-router-dom'
+
 const Navbar = () => {
 
     const [active, setActive] = useState(false)
@@ -25,18 +28,19 @@ const Navbar = () => {
         };
       }, []);
 
-     const currentUser = {
-        id: 1,
-        username: "Manny",
-        isSeller: true
-      } 
-    // useEffect(() => {
-    //     window.addEventListener("scroll", isActive),
+     const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+     
+     const navigate = useNavigate()
 
-    //     return () => {
-    //         window.removeEventListener("scroll", isActive)
-    //     }
-    // }, [])
+     const handleLogout = async () => {
+        try {
+            await newRequest.post('/auth/logout')
+            localStorage.setItem('currentUser', null)
+            navigate('/')
+        } catch (err) {
+            console.log(err)
+        }
+     } 
 
   return (
     <div className={active || pathname!=="/" ? "navbar active" : "navbar"}>
@@ -50,13 +54,13 @@ const Navbar = () => {
                 <span>t.work Business</span>
                 <span>Explore</span>
                 <span>English</span>
-                <span>Sign in</span>
+                {!currentUser && <span>Sign in</span>}
                 {!currentUser?.isSeller &&<span>Become a Seller</span>}
                 {!currentUser && <button>Join</button>}
                 {currentUser && (
                     <div className="user" onClick={() => setOpen (!open)}>
-                        <img src="https://ik.imagekit.io/twork/alexander-hipp-iEEBWgY_6lA-unsplash__1_.jpg?updatedAt=1689415721528" alt="" />
-                        <span>{currentUser.username}</span>
+                        <img src={currentUser.img || '/img/noavatar.jpg'} alt="" />
+                        <span>{currentUser?.username}</span>
                         {open && <div className="options">
                             {
                                 currentUser?.isSeller && (
@@ -67,7 +71,7 @@ const Navbar = () => {
                                 )}
                                 <Link className='link' to = "/orders">Orders</Link>
                                 <Link className='link' to = "/messages">Messages</Link>
-                                <Link className='link' to = "/">Logout</Link>
+                                <Link className='link' onClick={handleLogout} >Logout</Link>
                         </div>}
                     </div>
                 )}
