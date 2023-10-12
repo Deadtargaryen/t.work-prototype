@@ -8,10 +8,12 @@ const Featured = () => {
          <h1>Your Gateway to Tailored Opportunities, <i>Peer Networking</i>, and Student-Centric Resources</h1>
          <div className="search">
           <div className="searchInput">
-            <img src="/img/search.png" alt="" />
+            
             <input type="text" placeholder='Try "building web app"' />
           </div>
-          <button>Search</button>
+          <button>
+            <img src="/img/search.png" alt="" />
+            </button>
          </div>
          <div className="popular">
           <span>Popular:</span>
@@ -23,7 +25,8 @@ const Featured = () => {
          </div>
          </div>
          <div className="right">
-          <img src="https://ik.imagekit.io/twork/man.png?updatedAt=1689579177142" alt="" />
+          <img src="https://ik.imagekit.io/twork/prince-akachi-4Yv84VgQkRM-unsplash-removebg-preview.png?updatedAt=1697098598138" alt="Prince Akachi" />
+          <p>Prince Akachi</p>
          </div>
       </div>
     </div>

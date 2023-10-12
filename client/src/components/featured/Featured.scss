@@ -5,7 +5,7 @@
     background-color: #000000;
     color: #ffffff;
     .container{
-        width: 1400px;
+        width: 1000px;
         display: flex;
         align-items: center;
 
@@ -27,33 +27,39 @@
                 align-items: center;
                 justify-content: space-between;
                 background-color: #fff;
-                border-radius: 25px;
+                border-radius: 5px;
                 height: 50px;
                 .searchInput{
                     display: flex;
                     align-items: center;
+                    text-align: center;
                     gap: 10px;
 
-                    img{
-                        width: 20px;
-                        height: 20px;
-                        margin: 10px;
-                    }
+                    
 
                     input{
                         border: none;
                         outline: none;
+                        // align-items: center;
+                        // justify-content: center;
+                        text-align: center;
                     }
                 }
 
                 button{
-                    width: 120px;
+                    width: 80px;
                     height: 50px;
                     border: none;
                     background-color: mediumblue;
                     color: #fff;
                     cursor: pointer;
-                    border-radius: 10px;
+                    border-radius: 1px;
+                
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        margin: 10px;
+                    }
                 }
             }
 
@@ -75,11 +81,17 @@
         }
         .right{
             height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers items horizontally */
+            text-align: center; /* Centers text within the container */
+            color: white;
 
             img{
                 height: 100%;
                 object-fit: contain;
             }
+
         }
     }
 }
