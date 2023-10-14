@@ -17,11 +17,39 @@ const newGig = new Gig ({
     }
 }
 export const deleteGig = async (req, res, next) => {
-    
+    try {
+        const gig = await Gig.findById(req.params.id)
+
+        if(gig.userId !== req.userId)
+        return next(createError(403, 'You can delete only your Gig!'))
+
+        await Gig.findByIdAndDelete(req.params.id)
+        res.status(200).send('Gig has been deleted successfully!')
+    } catch (err) {
+       next(err) 
+    }
 }
 export const getGig = async (req, res, next) => {
-
+    try {
+        const gig = await Gig.findById(req.params.id)
+        if (!gig) next(createError(404, 'Gig not found'))
+        res.status(200).send(gig)
+    } catch (err) {
+       next(err) 
+    }
 }
 export const getGigs = async (req, res, next) => {
 
+    const filters = {
+        cat:'design',
+        price: {$gt:100},
+        title: {$regex: 'Gig 2'}
+    }
+
+    try {
+        const gigs = await Gig.find(filters)
+        res.status(200).send(gigs)
+    } catch (err) {
+       next(err) 
+    }
 }
