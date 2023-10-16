@@ -54,7 +54,7 @@ const Navbar = () => {
                 <span>t.work Business</span>
                 <span>Explore</span>
                 <span>English</span>
-                {!currentUser && <span>Sign in</span>}
+                {!currentUser && <Link to='/login' className='link'>Sign in</Link>}
                 {!currentUser?.isSeller &&<span>Become a Seller</span>}
                 {!currentUser && <button>Join</button>}
                 {currentUser && (
