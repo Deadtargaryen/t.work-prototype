@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react'
 import './Gigs.scss'
-import {gigs} from '../../data'
 import GigCard from '../../components/gigCard/GigCard'
 import { useQuery } from '@tanstack/react-query'
 import newRequest from '../../utils/newRequest'
@@ -11,10 +10,12 @@ const Gigs = () => {
   const minRef = useRef()
   const maxRef = useRef()
 
-  const { isPending, error, data } = useQuery({
+  const { isLoading, error, data } = useQuery({
     queryKey: ['repoData'],
     queryFn: () =>
-      newRequest('/gigs')
+      newRequest.get('/gigs').then(res=>{
+        return res.data
+      })
   })
 
   console.log(data)
@@ -22,6 +23,11 @@ const Gigs = () => {
   const reSort = (type) =>{
     setSort(type)
     setOpen(false)
+  }
+
+  const apply = ()=>{
+    console.log(minRef.current.value)
+    console.log(maxRef.current.value)
   }
 
   return (
@@ -33,9 +39,9 @@ const Gigs = () => {
         <div className='menu'>
           <div className='left'>
             <span>Budget</span>
-            <input type='text' placeholder='min' />
-            <input type='text' placeholder='max' />
-            <button>Apply</button>
+            <input ref={minRef} type="number" placeholder="min" />
+            <input ref={maxRef} type="number" placeholder="max" />
+            <button onClick={apply}>Apply</button>
           </div>
           <div className='right'>
             <span className='sortBy'>Sort By</span>
@@ -50,7 +56,9 @@ const Gigs = () => {
           </div>
         </div>
         <div className="cards">
-          {gigs.map(gig=>(
+          {isLoading ? 'loading' 
+          : error ? 'Something went wrong!'
+          : data.map(gig=>(
             <GigCard key={gig.id} item={gig}/>
           ))}
         </div>
