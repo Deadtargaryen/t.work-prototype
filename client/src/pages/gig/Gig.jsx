@@ -1,13 +1,29 @@
 import { Slider } from 'infinite-react-carousel/lib'
 import React from 'react'
 import './Gig.scss'
+import { useQuery } from '@tanstack/react-query'
+import newRequest from '../../utils/newRequest'
+import { useParams } from 'react-router-dom'
 const Gig = () => {
+
+  const {id} = useParams()
+
+
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ['gig'],
+    queryFn: () =>
+      newRequest.get(`/gigs/single/${id}`
+      ).then(res=>{
+        return res.data
+      })
+  })
+
   return (
     <div className='gig'>
       <div className='container'>
         <div className='left'>
           <span className='breadCrumbs'>TWORK &gt; GRAPHICS & DESIGN &gt;</span>
-          <h1>I will create an AI generated art for you</h1>
+          <h1>{data.title}</h1>
 
           <div className='user'>
             <img
@@ -26,28 +42,18 @@ const Gig = () => {
             </div>
           </div>
           <Slider slidesToShow={1} arrowsScroll={1} className='slider'>
+          {data.images.map(img=>{
             <img
-              src='https://images.pexels.com/photos/1074535/pexels-photo-1074535.jpeg?auto=compress&cs=tinysrgb&w=1600'
+            key={img}
+              src={img}
               alt=''
             />
-            <img
-              src='https://images.pexels.com/photos/1462935/pexels-photo-1462935.jpeg?auto=compress&cs=tinysrgb&w=1600'
-              alt=''
-            />
-            <img
-              src='https://images.pexels.com/photos/1054777/pexels-photo-1054777.jpeg?auto=compress&cs=tinysrgb&w=1600'
-              alt=''
-            />
+          })}
+            
           </Slider>
           <h2>About this Gig</h2>
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius
-            doloremque deleniti amet! Aliquam in itaque cumque impedit id
-            facilis dicta minus assumenda repellat officiis alias, reiciendis
-            dolore, voluptate provident iste. Lorem ipsum dolor sit, amet
-            consectetur adipisicing elit. Eius doloremque deleniti amet! Aliquam
-            in itaque cumque impedit id facilis dicta minus assumenda repellat
-            officiis alias, reiciendis dolore, voluptate provident iste.
+            {data.desc}
           </p>
           <div className='seller'>
             <h2>About the seller</h2>
@@ -206,11 +212,10 @@ const Gig = () => {
         </div>
         <div className='right'>
           <div className="price">
-            <h3>1 AI generated image</h3>
+            <h3>{data.shortTitle}</h3>
             <h2>$ 59.99</h2>
           </div>
-          <p>I will create high quality AI generated 
-            image based on the descrption you give me
+          <p>{data.shortDesc}
           </p>
           <div className="details">
             <div className="item">
