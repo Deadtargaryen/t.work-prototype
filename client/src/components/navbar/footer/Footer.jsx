@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="item">
             <h2>Categories</h2>
             <span>Graphics & Design</span>
-            <span>Digital Marketinng</span>
+            <span>Digital Marketing</span>
             <span>Writing & Translation</span>
             <span>Video & Animation</span>
             <span>Music & Audio</span>
@@ -20,61 +20,36 @@ const Footer = () => {
             <span>Sitemap</span>
           </div>
           <div className="item">
-            <h2>Categories</h2>
-            <span>Graphics & Design</span>
-            <span>Digital Marketinng</span>
-            <span>Writing & Translation</span>
-            <span>Video & Animation</span>
-            <span>Music & Audio</span>
-            <span>Programming & Tech</span>
-            <span>Data</span>
-            <span>Business</span>
-            <span>Lifestyle</span>
-            <span>Photography</span>
-            <span>Sitemap</span>
+            <h2>About</h2>
+            <span>Press & News</span>
+            <span>Partnerships</span>
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+            <span>Intellectual Property Claims</span>
+            <span>Investor Relations</span>
+            <span>Contact Sales</span>
           </div>
           <div className="item">
-            <h2>Categories</h2>
-            <span>Graphics & Design</span>
-            <span>Digital Marketinng</span>
-            <span>Writing & Translation</span>
-            <span>Video & Animation</span>
-            <span>Music & Audio</span>
-            <span>Programming & Tech</span>
-            <span>Data</span>
-            <span>Business</span>
-            <span>Lifestyle</span>
-            <span>Photography</span>
-            <span>Sitemap</span>
+            <h2>Support</h2>
+            <span>Help & Support</span>
+            <span>Trust & Safety</span>
+            <span>Selling on t.work</span>
+            <span>Buying on t.work</span>
           </div>
           <div className="item">
-            <h2>Categories</h2>
-            <span>Graphics & Design</span>
-            <span>Digital Marketinng</span>
-            <span>Writing & Translation</span>
-            <span>Video & Animation</span>
-            <span>Music & Audio</span>
-            <span>Programming & Tech</span>
-            <span>Data</span>
-            <span>Business</span>
-            <span>Lifestyle</span>
-            <span>Photography</span>
-            <span>Sitemap</span>
+            <h2>Community</h2>
+            <span>Customer Success Stories</span>
+            <span>Community Hub</span>
+            <span>Forum</span>
+            <span>Events</span>
+            <span>Blog</span>
+            <span>Influencers</span>
+            <span>Affilates</span>
+            <span>Podcast</span>
+            <span>Invite a Friend</span>
+            <span>Community Standards</span>
           </div>
-          <div className="item">
-            <h2>Categories</h2>
-            <span>Graphics & Design</span>
-            <span>Digital Marketinng</span>
-            <span>Writing & Translation</span>
-            <span>Video & Animation</span>
-            <span>Music & Audio</span>
-            <span>Programming & Tech</span>
-            <span>Data</span>
-            <span>Business</span>
-            <span>Lifestyle</span>
-            <span>Photography</span>
-            <span>Sitemap</span>
-          </div>
+          
         </div>
         <hr/>
         <div className="bottom">

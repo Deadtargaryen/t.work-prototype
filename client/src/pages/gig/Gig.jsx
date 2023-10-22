@@ -20,9 +20,10 @@ const Gig = () => {
 
   return (
     <div className='gig'>
+      {isLoading ? 'loading...': error ? 'something went wrong!' : 
       <div className='container'>
         <div className='left'>
-          <span className='breadCrumbs'>TWORK &gt; GRAPHICS & DESIGN &gt;</span>
+          <span className='breadCrumbs'>TWORK {"&gt;"} GRAPHICS & DESIGN {"&gt;"}</span>
           <h1>{data.title}</h1>
 
           <div className='user'>
@@ -213,41 +214,32 @@ const Gig = () => {
         <div className='right'>
           <div className="price">
             <h3>{data.shortTitle}</h3>
-            <h2>$ 59.99</h2>
+            <h2>$ {data.Price}</h2>
           </div>
           <p>{data.shortDesc}
           </p>
           <div className="details">
             <div className="item">
             <img src="/img/clock.png" alt="" />
-            <span>2 days Delivery</span>
+            <span>{data.deliveryTime} days Delivery</span>
             </div>
             <div className="item">
             <img src="/img/recycle.png" alt="" />
-            <span>3 Revisions</span>
+            <span>{data.revisionNumber} Revisions</span>
             </div>
           </div>
           <div className="features">
-            <div className="item">
+            {data.features.map((feature) => {
+
+            <div className="item" key={feature}>
               <img src="/img/greencheck.png" alt="" />
-              <span>Prompt Writing</span>
+              <span>{feature}</span>
             </div>
-            <div className="item">
-              <img src="/img/greencheck.png" alt="" />
-              <span>Artwork Delivery</span>
-            </div>
-            <div className="item">
-              <img src="/img/greencheck.png" alt="" />
-              <span>Image upscaling</span>
-            </div>
-            <div className="item">
-              <img src="/img/greencheck.png" alt="" />
-              <span>Additional Design</span>
-            </div>
+          })}
           </div>
           <button>Continue</button>
         </div>
-      </div>
+      </div>}
     </div>
   )
 }
