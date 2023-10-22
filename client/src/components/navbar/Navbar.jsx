@@ -51,9 +51,9 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className="links">
-                <span>t.work Business</span>
-                <span>Explore</span>
-                <span>English</span>
+                <Link className='link'>t.work Business</Link>
+                <Link className='link'>Explore</Link>
+                <Link className='link'>English</Link>
                 {!currentUser && <Link to='/login' className='link'>Sign in</Link>}
                 {!currentUser?.isSeller &&<span>Become a Seller</span>}
                 {!currentUser && <button>Join</button>}
