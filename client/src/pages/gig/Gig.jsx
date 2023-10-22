@@ -4,6 +4,7 @@ import './Gig.scss'
 import { useQuery } from '@tanstack/react-query'
 import newRequest from '../../utils/newRequest'
 import { useParams } from 'react-router-dom'
+import Reviews from '../../components/reviews/Reviews'
 const Gig = () => {
 
   const {id} = useParams()
@@ -40,10 +41,10 @@ const Gig = () => {
           : (<div className='user'>
             <img
             className='pp'
-              src='https://ik.imagekit.io/twork/alexander-hipp-iEEBWgY_6lA-unsplash__1_.jpg?updatedAt=1689415721528'
+              src={dataUser.img || '/img/noavatar.jpg'}
               alt=''
             />
-            <span>John Doe</span>
+            <span>{dataUser.username}</span>
             {!isNaN(data.totalStars / data.starNumber) &&(
                 <div className="stars">
                   {Array(Math.round(data.totalStars / data.starNumber)).fill().map((item, i)=>(
@@ -74,11 +75,11 @@ const Gig = () => {
             <h2>About the seller</h2>
             <div className='user'>
               <img
-                src='https://ik.imagekit.io/twork/alexander-hipp-iEEBWgY_6lA-unsplash__1_.jpg?updatedAt=1689415721528'
+                src={dataUser.img || '/img/noavatar.jpg'}
                 alt=''
               />
               <div className='info'>
-                <span>John Doe</span>
+                <span>{dataUser.username}</span>
                 {!isNaN(data.totalStars / data.starNumber) &&(
                 <div className="stars">
                   {Array(Math.round(data.totalStars / data.starNumber)).fill().map((item, i)=>(
@@ -94,7 +95,7 @@ const Gig = () => {
               <div className="items">
                 <div className="item">
                   <span className="title">From</span>
-                  <span className="desc">UniCal</span>
+                  <span className="desc">{dataUser.country}</span>
                 </div><div className="item">
                   <span className="title">Member since</span>
                   <span className="desc">Aug 2023</span>
@@ -111,85 +112,13 @@ const Gig = () => {
               </div>
               <hr/>
               <p>
-                My name is Ciaran. I enjoy creating AI generated art in my spare time. 
-                I have a lot of experience using the AI program and that means I know what 
-                to prompt the AI with to get great and incredibly detailed result.
+               {dataUser.desc}
               </p>
             </div>
           </div>)}
-          <div className="reviews">
-            <h2>Reviews</h2>
-            <div className="item">
-              <div className="user">
-                <img className='pp' src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-                <div className="info">
-                  <span>John Doe</span>
-                  <div className="country">
-                    <img src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png" alt="" />
-                    <span>United States</span>
-                  </div>
-                </div>
-              </div>
-              <div className="stars">
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <span>5</span>
-              </div>
-              <p>
-                Amazing work! Communication was
-                amazing, each and every day he sent me images that I was free to
-                request changes to. They listened, understood, and delivered
-                above and beyond my expectations. I absolutely recommend this
-                gig, and know already that Ill be using it again very very soon
-              </p>
-              <div className="helpful">
-                <span>Helpful?</span>
-                <img src="/img/like.png" alt="" />
-                <span>Yes</span>
-                <img src="/img/dislike.png" alt="" />
-                <span>No</span>
-              </div>
-            </div>
-            <hr/>
-            <div className="item">
-              <div className="user">
-                <img className='pp' src="https://images.pexels.com/photos/839586/pexels-photo-839586.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-                <div className="info">
-                  <span>John Doe</span>
-                  <div className="country">
-                    <img src="https://fiverr-dev-res.cloudinary.com/general_assets/flags/1f1fa-1f1f8.png" alt="" />
-                    <span>United States</span>
-                  </div>
-                </div>
-              </div>
-              <div className="stars">
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <img src="/img/star.png" alt="" />
-                <span>5</span>
-              </div>
-              <p>
-                Amazing work! Communication was
-                amazing, each and every day he sent me images that I was free to
-                request changes to. They listened, understood, and delivered
-                above and beyond my expectations. I absolutely recommend this
-                gig, and know already that Ill be using it again very very soon
-              </p>
-              <div className="helpful">
-                <span>Helpful?</span>
-                <img src="/img/like.png" alt="" />
-                <span>Yes</span>
-                <img src="/img/dislike.png" alt="" />
-                <span>No</span>
-              </div>
-            </div>
-            <hr/>
-          </div>
+          
+          <Reviews gigId={id}/>
+        
         </div>
         <div className='right'>
           <div className="price">
