@@ -1,10 +1,12 @@
 import React from 'react'
 import './Reviews.scss'
 import Review from '../review/Review'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import newRequest from '../../utils/newRequest'
 
 const Reviews = ({gigId}) => {
+
+    const queryClient = useQueryClient()
 
     const { isLoading, error, data} = useQuery({
         queryKey: ['reviews'],
@@ -19,6 +21,9 @@ const Reviews = ({gigId}) => {
     mutationFn: (review) => {
       return newRequest.post('/reviews', review)
     },
+    onSuccess:()=>{
+      queryClient.invalidateQueries(['reviews'])
+    }
   })
 
       const handleSubmit = e=>{
@@ -37,7 +42,7 @@ const Reviews = ({gigId}) => {
             
             <div className='add'>
               <h3>Add a review</h3>
-              <form action='' onSubmit={handleSubmit}>
+              <form action='' className='addForm' onSubmit={handleSubmit}>
                 <input type='text' placeholder='write your opinion'/>
                 <select name='' id=''>
                   <option value={1}>1</option>
