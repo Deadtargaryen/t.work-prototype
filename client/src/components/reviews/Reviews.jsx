@@ -1,7 +1,7 @@
 import React from 'react'
 import './Reviews.scss'
 import Review from '../review/Review'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import newRequest from '../../utils/newRequest'
 
 const Reviews = ({gigId}) => {
@@ -15,10 +15,17 @@ const Reviews = ({gigId}) => {
           })
       })
 
+      const mutation = useMutation({
+    mutationFn: (review) => {
+      return newRequest.post('/reviews', review)
+    },
+  })
+
       const handleSubmit = e=>{
         e.preventDefault()
         const desc = e.target[0].value
         const star = e.target[1].value
+        mutation.mutate({ gigId, desc, star })
       }
 
   return (
