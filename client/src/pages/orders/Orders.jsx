@@ -1,16 +1,26 @@
 import React from 'react'
 import "./Orders.scss"
+import { useQuery } from '@tanstack/react-query'
+import newRequest from '../../utils/newRequest'
+
+
 const Orders = () => {
 
-  const currentUser = {
-    id: 1,
-    username: "Manny",
-    isSeller: true
-  } 
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
+  const { isLoading, error, data } = useQuery({
+    queryKey: ['orders'],
+    queryFn: () =>
+      newRequest.get(`/orders`
+      ).then(res=>{
+        return res.data
+      })
+  })
 
   return (
     <div className='orders'>
-      <div className="container">
+      (isLoading ? 'Loading' : error
+        <div className="container">
         <div className="title">
           <h1>Orders</h1>
         </div>
@@ -67,7 +77,7 @@ const Orders = () => {
             </td>
           </tr>
         </table>
-      </div>
+      </div>)
     </div>
   )
 }
