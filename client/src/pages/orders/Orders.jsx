@@ -19,7 +19,11 @@ const Orders = () => {
 
   return (
     <div className='orders'>
-      (isLoading ? 'Loading' : error
+      {isLoading ? (
+        'loading'
+        ) : error ? (
+          'error'
+          ) : (
         <div className="container">
         <div className="title">
           <h1>Orders</h1>
@@ -29,55 +33,27 @@ const Orders = () => {
             <th>Image</th>
             <th>Title</th>
             <th>Price</th>
-            <th>{currentUser?.isSeller ? 'Buyer':'Seller'}</th>
             <th>Contact</th>
           </tr>
-          <tr>
+         { 
+          data.map(order=>(
+
+          <tr key={order._id}>
             <td>
-              <img className='img' src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+              <img 
+              className='img' 
+              src={order.img} 
+              alt="" />
             </td>
-            <td>Gig1</td>
-            <td>45</td>
-            <td>123</td>
+            <td>{order.title}</td>
+            <td>{order.price}</td>
             <td>
-              <img className='delete' src="/img/message.png" alt="" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img className='img' src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-            </td>
-            <td>Gig1</td>
-            <td>45</td>
-            <td>123</td>
-            <td>
-              <img className='delete' src="/img/message.png" alt="" />
+              <img className='message' src="/img/message.png" alt="" />
             </td>
           </tr>
-          <tr>
-            <td>
-              <img className='img' src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-            </td>
-            <td>Gig1</td>
-            <td>45</td>
-            <td>123</td>
-            <td>
-              <img className='delete' src="/img/message.png" alt="" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img className='img' src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
-            </td>
-            <td>Gig1</td>
-            <td>45</td>
-            <td>123</td>
-            <td>
-              <img className='delete' src="/img/message.png" alt="" />
-            </td>
-          </tr>
+          ))}
         </table>
-      </div>)
+      </div>)}
     </div>
   )
 }
