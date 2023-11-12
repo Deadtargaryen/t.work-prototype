@@ -3,20 +3,22 @@ import Conversation from '../models/conversation.model.js'
 
 export const createConversation = async (req, res, next)=>{
     
-    const newConversation = new Conversation({
-        id: req.isSeller ? req.userId + req.body.to : req.body.to + req.userId,
-        sellerId: req.isSeller ? req.userId : req.body.to,
-        buyerId: req.isSeller ?  req.body.to : req.userId,
-        readBySeller: req.isSeller,
-        readByBuyer: !req.isSeller
-    })
-
-    try {
-        const saveConversation = await newConversation.save()
-        res.status(201).send(saveConversation)
-    } catch (err) {
-        next(err)
-    }
+        const newConversation = new Conversation({
+            id: req.isSeller ? req.userId + req.body.to : req.body.to + req.userId,
+            sellerId: req.isSeller ? req.userId : req.body.to,
+            buyerId: req.isSeller ? req.body.to : req.userId,
+            readBySeller: req.isSeller || false,  // Set readBySeller based on req.isSeller
+            readByBuyer: !req.isSeller || false, // Set readByBuyer based on req.isSeller
+        });
+    
+        try {
+            const saveConversation = await newConversation.save();
+            res.status(201).send(saveConversation);
+        } catch (err) {
+            next(err);
+        }
+    
+    
 }
 
 export const getConversations = async (req, res, next)=>{

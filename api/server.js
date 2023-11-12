@@ -34,7 +34,7 @@ app.use('/api/users', userRoute)
 app.use('/api/auth', authRoute)
 app.use('/api/gigs', gigRoute)
 app.use('/api/message', messageRoute)
-app.use('/api/conversation', conversationRoute)
+app.use('/api/conversations', conversationRoute)
 app.use('/api/order', orderRoute)
 app.use('/api/review', reviewRoute)
 
