@@ -1,6 +1,6 @@
 import createError from "../utils/createError"
 
-export const createOrder = async (req, res, next)=>{
+export const createMessage = async (req, res, next)=>{
     try {
         
     } catch (err) {

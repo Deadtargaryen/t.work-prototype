@@ -58,7 +58,7 @@ const Messages = () => {
             <td>
               {currentUser.isSeller ? c.buyerId : c.sellerId}
             </td>
-            <td><Link to='/message/123' className='link'>
+            <td><Link to={`/message/${c.id}`} className='link'>
             {c?.lastMessage?.substring(0,100)}...
             </Link></td>
             <td>{moment(c.updatedAt).fromNow()}</td>
