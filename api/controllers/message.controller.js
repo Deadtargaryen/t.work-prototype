@@ -13,9 +13,15 @@ export const createMessage = async (req, res, next)=>{
         const savedMessage = await newMessage.save()
         await Conversation.findOneAndUpdate({id: req.body.ConversationId},{
             $set:{
-                
-            }
-        })
+                readBySeller: req.isSeller,
+                readByBuyer: !req.isSeller,
+                lastMessage: req.body.desc
+            },
+        },
+            {new : true}
+            )
+
+            res.status(201).send(savedMessage)
     } catch (err) {
         next(err)
     }
