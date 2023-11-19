@@ -11,7 +11,11 @@ export const createMessage = async (req, res, next)=>{
     try {
         
         const savedMessage = await newMessage.save()
-        await Conversation.findOneAndUpdate({id: req.body.ConversationId})
+        await Conversation.findOneAndUpdate({id: req.body.ConversationId},{
+            $set:{
+                
+            }
+        })
     } catch (err) {
         next(err)
     }
