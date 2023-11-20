@@ -10,30 +10,29 @@ const Message = () => {
 
   const { isLoading, error, data } = useQuery({
     queryKey: ['messages', id], // Include 'id' in the queryKey to make it dynamic
-    queryFn: () => newRequest.get(`/messages/${id}`).then(res => res.data),
-  });
+    queryFn: () => newRequest.get(`/message/${id}`).then((res) => {
+     return res.data
+    }),
+  })
 
   const mutation = useMutation({
-    mutationFn: (message) => newRequest.post(`/messages`, message),
+    mutationFn: (message) => {
+      return newRequest.post(`/messages`, message)
+    },
     onSuccess: () => {
       queryClient.invalidateQueries(['messages', id]) // Invalidate the specific query for this 'id'
     },
-  });
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    mutation.mutate({
+      conversationId: id,
+      desc: e.target[0].value,
+    })
+    e.target[0].value = "";
+  };
 
-    const messageText = e.target[0].value;
-
-    if (messageText.trim() !== '') {
-      mutation.mutate({
-        ConversationId: id,
-        desc: messageText,
-      });
-
-      e.target[0].value = ''
-    }
-  }
 
   return (
     <div className='message'>

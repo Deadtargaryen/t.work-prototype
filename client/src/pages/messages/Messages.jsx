@@ -13,7 +13,7 @@ const Messages = () => {
   const queryClient = useQueryClient()
   
   const { isLoading, error, data } = useQuery({
-    queryKey: ['conversatons', currentUser.id],
+    queryKey: ['conversations', currentUser.id],
     queryFn: () =>
       newRequest.get(`/conversations?userId=${currentUser.id}`)
       .then(res=>{
