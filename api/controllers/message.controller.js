@@ -4,7 +4,7 @@ import Conversation from '../models/conversation.model.js'
 
 export const createMessage = async (req, res, next)=>{
     const newMessage = new Message({
-        ConversationId : req.body.conversationId,
+        ConversationId : req.body.ConversationId,
         userId: req.userId,
         desc: req.body.desc
     })

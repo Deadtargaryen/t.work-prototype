@@ -14,7 +14,7 @@ const Message = () => {
   });
 
   const mutation = useMutation({
-    mutationFn: (message) => newRequest.post(`/messages/`, message),
+    mutationFn: (message) => newRequest.post(`/messages`, message),
     onSuccess: () => {
       queryClient.invalidateQueries(['messages', id]) // Invalidate the specific query for this 'id'
     },
