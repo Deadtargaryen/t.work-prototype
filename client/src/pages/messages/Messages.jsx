@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Messages.scss"
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useQueryClient, useMutation, useQuery } from '@tanstack/react-query'
 import newRequest from '../../utils/newRequest'
 import moment from 'moment'
