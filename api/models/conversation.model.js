@@ -24,7 +24,7 @@ const ConversationSchema = new Schema({
   required: true,
  },
  lastMessage: {
-  type: Boolean,
+  type: String,
   required: false,
  },
 }, {

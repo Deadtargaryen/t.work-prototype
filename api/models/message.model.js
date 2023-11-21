@@ -1,21 +1,18 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import mongoose from 'mongoose'
+const { Schema } = mongoose
 
 const MessageSchema = new Schema({
   conversationId: {
     type: String,
     required: true,
-    unique: true,
   },
 userId: {
     type: String,
     required: true,
-    unique: true,
   },
 desc: {
     type: String,
     required: true,
-    unique: true,
   },
 }, {
     timestamps: true
