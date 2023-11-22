@@ -1,46 +1,42 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import React from "react";
-import { Link, useParams } from "react-router-dom";
-import newRequest from "../../utils/newRequest";
-import "./Message.scss";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
+import React from "react"
+import { Link, useParams } from "react-router-dom"
+import newRequest from "../../utils/newRequest"
+import "./Message.scss"
 
 const Message = () => {
   const { id } = useParams();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-  const queryClient = useQueryClient();
+  const queryClient = useQueryClient()
 
-  const { isLoading, error, data } = useQuery({
-    queryKey: ["messages"],
-    queryFn: () =>
-      newRequest.get(`/messages/${id}`).then((res) => {
-        return res.data;
-      }),
-  });
+  const { isLoading, error, data } = useQuery(["messages", id], () =>
+    newRequest.get(`/messages/${id}`).then((res) => res.data)
+  )
 
-  const mutation = useMutation({
-    mutationFn: (message) => {
-      return newRequest.post(`/messages`, message);
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries(["messages"]);
-    },
-  });
+  const mutation = useMutation((message) =>
+    newRequest.post(`/messages`, message),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["messages", id])
+      },
+    }
+  )
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     mutation.mutate({
       conversationId: id,
       desc: e.target[0].value,
-    });
-    e.target[0].value = "";
-  };
+    })
+    e.target[0].value = ""
+  }
 
   return (
     <div className="message">
       <div className="container">
         <span className="breadcrumbs">
-          <Link to="/messages">Messages</Link> &gt; John Doe &gt;
+          <Link to="/messages">Messages</Link> &gt; {currentUser.username} &gt;
         </span>
         {isLoading ? (
           "loading"
@@ -66,7 +62,7 @@ const Message = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Message;
+export default Message
