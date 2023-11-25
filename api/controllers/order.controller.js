@@ -26,13 +26,13 @@ export const intent = async (req, res, next) =>{
         buyerId: req.userId,
         sellerId: gig.userId,
         price: gig.price,
-        payment_intent: 'temporary',
+        payment_intent: paymentIntent.id,
     })
 
     await newOrder.save()
 
-    res.send({
-        clientSecret
+    res.status(200).send({
+        clientSecret: paymentIntent.client_secret,
     })
 
 }
