@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
-import newRequest from "../../utils/newRequest";
+import newRequest from "../../utils/newRequest.js";
 import "./Messages.scss";
 import moment from "moment";
 
@@ -40,9 +40,10 @@ const Messages = () => {
       ) : (
         <div className="container">
           <div className="title">
-            <h1>Messages</h1>
+            <h1>Messages for {currentUser.username}</h1>
           </div>
           <table>
+            <tbody>
             <tr>
               <th>{currentUser.isSeller ? "Buyer" : "Seller"}</th>
               <th>Last Message</th>
@@ -75,6 +76,7 @@ const Messages = () => {
                 </td>
               </tr>
             ))}
+            </tbody>
           </table>
         </div>
       )}
