@@ -4,7 +4,7 @@ import { createOrder, getOrders, intent } from '../controllers/order.controller.
 
 const router =  express.Router()
 
-router.post('/:gigId', verifyToken, createOrder )
+// router.post('/:gigId', verifyToken, createOrder )
 router.get('/', verifyToken, getOrders )
 router.post('/create-payment-intent/:id', verifyToken, intent)
 

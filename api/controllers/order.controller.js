@@ -8,15 +8,33 @@ export const intent = async (req, res, next) =>{
         process.env.STRIPE
     )
 
+    const gig = await Gig.findById(req.params.id)
+
     const paymentIntent = await stripe.paymentIntents.create({
-        amount: calculateOrderAmount(items),
+        amount: gig.price *100,
         currency: "usd",
         // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
         automatic_payment_methods: {
           enabled: true,
         },
       });
-      
+
+      const newOrder = new Order ({
+        gigId: gig._id,
+        img: gig.cover,
+        title: gig.title,
+        buyerId: req.userId,
+        sellerId: gig.userId,
+        price: gig.price,
+        payment_intent: 'temporary',
+    })
+
+    await newOrder.save()
+
+    res.send({
+        clientSecret
+    })
+
 }
 
 export const createOrder = async (req, res, next)=>{
