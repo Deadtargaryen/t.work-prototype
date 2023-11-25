@@ -7,6 +7,16 @@ export const intent = async (req, res, next) =>{
     const stripe = new Stripe(
         process.env.STRIPE
     )
+
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: calculateOrderAmount(items),
+        currency: "usd",
+        // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
+        automatic_payment_methods: {
+          enabled: true,
+        },
+      });
+      
 }
 
 export const createOrder = async (req, res, next)=>{

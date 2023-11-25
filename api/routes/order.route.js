@@ -6,6 +6,6 @@ const router =  express.Router()
 
 router.post('/:gigId', verifyToken, createOrder )
 router.get('/', verifyToken, getOrders )
-router.post('/create-payment-intent', verifyToken, intent)
+router.post('/create-payment-intent/:id', verifyToken, intent)
 
 export default router
