@@ -14,6 +14,8 @@ import Register from "./pages/register/Register"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import "./app.scss" 
 import { QueryClient, QueryClientProvider, useQuery,} from '@tanstack/react-query'
+import Pay from "./pages/pay/Pay"
+import Success from "./pages/success/success"
 
 function App() {
   
@@ -76,6 +78,14 @@ function App() {
         {
           path:"/register",
           element: <Register/>
+        },
+        {
+          path:"/pay",
+          element: <Pay/>
+        },
+        {
+          path:"/success",
+          element: <Success/>
         },
       ]
     },
