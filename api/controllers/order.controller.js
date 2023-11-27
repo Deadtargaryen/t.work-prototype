@@ -52,15 +52,15 @@ export const getOrders = async (req, res, next)=>{
         next(err)
     }
 }
-export const getOrders = async (req, res, next)=>{
+export const confirm = async (req, res, next)=>{
     try {
          
-        const orders = await Order.find({
-            ...(req.isSeller ? { sellerId: req.userId } : { buyerId: req.userId }),
-            isCompleted: true,
-        })
+        const orders = await Order.findOneAndUpdate({payment_intent: req.body.payment_intent,},
+            {$set:{
+                isCompleted: true,
+            }})
 
-        res.status(200).send(orders)
+        res.status(200).send('order has been confirmed!')
 
     } catch (err) {
         next(err)
