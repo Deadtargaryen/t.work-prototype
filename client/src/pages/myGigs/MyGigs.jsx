@@ -28,6 +28,8 @@ onSuccess:()=>{
 }
 })
 
+
+
   return (
     <div className='myGigs'>
       { isLoading ? (
@@ -51,17 +53,20 @@ onSuccess:()=>{
             <th>Sales</th>
             <th>Action</th>
           </tr>
-          <tr>
+          {data.map(gig=>(
+            <tr key={gig._id}>
             <td>
-              <img className='img' src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+              <img className='img' 
+              src={gig.cover} alt="" />
             </td>
-            <td>Gig1</td>
-            <td>45</td>
-            <td>123</td>
+            <td>{gig.title}</td>
+            <td>{gig.price}</td>
+            <td>{gig.sales}</td>
             <td>
-              <img className='delete' src="/img/delete.png" alt="" onClick={handleDelete} />
+              <img className='delete' src="/img/delete.png" alt="" onClick={()=>handleDelete(gig._id)} />
             </td>
           </tr>
+          ))}
           </tbody>
         </table>
       </div>
