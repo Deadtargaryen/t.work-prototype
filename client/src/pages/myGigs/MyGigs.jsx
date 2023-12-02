@@ -28,7 +28,9 @@ onSuccess:()=>{
 }
 })
 
-
+  const handleDelete = (id) =>{
+    mutation.mutate(id)
+  }
 
   return (
     <div className='myGigs'>
@@ -63,7 +65,8 @@ onSuccess:()=>{
             <td>{gig.price}</td>
             <td>{gig.sales}</td>
             <td>
-              <img className='delete' src="/img/delete.png" alt="" onClick={()=>handleDelete(gig._id)} />
+              <img className='delete' src="/img/delete.png" alt="" 
+              onClick={()=>handleDelete(gig._id)} />
             </td>
           </tr>
           ))}
