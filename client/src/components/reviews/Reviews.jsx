@@ -26,7 +26,7 @@ const Reviews = ({gigId}) => {
     }
   })
 
-      const handleSubmit = e=>{
+      const handleSubmit = (e)=>{
         e.preventDefault()
         const desc = e.target[0].value
         const star = e.target[1].value

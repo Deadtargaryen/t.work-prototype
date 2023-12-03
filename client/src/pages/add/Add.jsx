@@ -2,6 +2,9 @@
     import {gigReducer, INITIAL_STATE} from '../../reducers/gigReducer.js'
     import "./Add.scss"
     import upload from '../../utils/upload.js'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import newRequest from '../../utils/newRequest.js'
+import { useNavigate } from 'react-router-dom'
 
     const Add = () => {
 
@@ -33,7 +36,7 @@
           const cover = await upload(singleFile)
 
           const images = await Promise.all(
-            [...files].map(async file=>{
+            [...files].map(async (file)=>{
               const url = await upload(file)
               return url
             })
@@ -43,6 +46,25 @@
         } catch (err) {
           console.log(err);
         }
+      }
+
+      const navigate = useNavigate()
+
+      const queryClient = useQueryClient()
+      
+      const mutation = useMutation({
+    mutationFn: (gig) => {
+      return newRequest.post('/gigs', gig)
+    },
+    onSuccess:()=>{
+      queryClient.invalidateQueries(['myGigs'])
+    }
+  })
+
+      const handleSubmit = (e) =>{
+        e.preventDefault()
+        mutation.mutate(state)
+        // navigate('/mygigs')
       }
 
       return (
@@ -75,7 +97,7 @@
                   </div>
                 </div>
                   <button onClick={handleUpload}>
-                  {uploading ? 'upload' : 'uploading'}
+                  {uploading ? 'uploading' : 'upload'}
                   </button>
                 <label htmlFor="">Description</label>
                 <textarea name="desc" 
@@ -83,7 +105,7 @@
                 placeholder='Brief description to talk about your services'
                 onChange={handleChange}
                 ></textarea>
-              <button>Create</button>
+              <button onClick={handleSubmit}>Create</button>
               </div>
               <div className="right">
                 <label htmlFor="">Service Title</label>
@@ -112,10 +134,14 @@
                 <button type='submit'>+</button>
                 </form>
                 <div className='addedFeatures'>
-                  <div className='item'><button>feature
+                  {state?.features?.map((f)=>(
+                  <div className='item' key={f}>
+                  <button onClick={()=>dispatch({type:'REMOVE_FEATURE', payload: f})}>
+                  {f}
                   <span>X</span>
                   </button>
                   </div>
+                  ))}
                 </div>
                 <label htmlFor="">Price</label>
                 <input name='price'

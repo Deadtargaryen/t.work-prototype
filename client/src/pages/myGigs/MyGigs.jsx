@@ -14,14 +14,14 @@ const MyGigs = () => {
     queryKey: ['myGigs'],
     queryFn: () =>
       newRequest.get(`/gigs?userId=${currentUser.id}`
-      ).then(res=>{
+      ).then((res)=>{
         return res.data
       })
   })
   
   const mutation = useMutation({
 mutationFn: (id) => {
-  return newRequest.delete('/gigs/${id}')
+  return newRequest.delete(`/gigs/${id}`)
 },
 onSuccess:()=>{
   queryClient.invalidateQueries(['myGigs'])
