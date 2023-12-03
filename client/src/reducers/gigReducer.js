@@ -31,7 +31,7 @@ export const INITIAL_STATE = {
                 ...state,
                 features: [...state.feature, action.payload],
             }
-            case 'DELETE_FEATURE':
+            case 'REMOVE_FEATURE':
             return{
                 ...state,
                 features: state.features.filter(
