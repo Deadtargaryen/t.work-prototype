@@ -25,7 +25,7 @@ const connect = async ()=>{
     }
 }
 
-app.use(cors({origin:'https://t-work-prototype.vercel.app/', credentials:true}))
+app.use(cors({origin:'https://t-work-prototype.vercel.app', credentials:true}))
 app.use(express.json())
 app.use(cookieParser())
 
@@ -45,7 +45,7 @@ app.use((err, req, res, next)=>{
     return res.status(errorStatus).send(errorMessage)
 })
 
-app.listen(80, () => {
+app.listen(8800, () => {
     connect()
 console.log('Backend server is running!')
 })
