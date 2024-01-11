@@ -56,6 +56,3 @@ I am excited to announce that I am actively exploring the development of another
 
 This project is licensed under the [MIT License](LICENSE).
 
----
-
-Feel free to customize this README to suit the specific details of your project. Good luck with your T.Work Prototype, and we look forward to the future projects you have in store!
