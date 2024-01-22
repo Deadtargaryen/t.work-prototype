@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const newRequest = axios.create({
-    baseURL:'https://creepy-umbrella-bee.cyclic.app', 
+    baseURL:'https://creepy-umbrella-bee.cyclic.app/api/', 
     withCredentials: true,
 })
 
