@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const newRequest = axios.create({
-    baseURL:'https://t-work-prototype-api.vercel.app', 
+    baseURL:'https://creepy-umbrella-bee.cyclic.app', 
     withCredentials: true,
 })
 
