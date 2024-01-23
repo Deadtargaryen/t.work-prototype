@@ -26,9 +26,7 @@ const connect = async ()=>{
 }
 
 app.use(cors({origin:'https://t-work-two.vercel.app', 
-credentials:true,
-methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-allowedHeaders: 'Content-Type, Authorization',
+credentials:true
 }))
 app.use(express.json())
 app.use(cookieParser())
