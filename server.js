@@ -25,7 +25,7 @@ const connect = async ()=>{
     }
 }
 
-app.use(cors({origin:['https://t-work-two.vercel.app, http://localhost:5173'], 
+app.use(cors({origin:'http://localhost:5173', 
 credentials:true
 }))
 // Handle preflight requests
