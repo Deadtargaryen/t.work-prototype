@@ -24,7 +24,7 @@ const connect = async ()=>{
     console.log(error);
     }
 }
-
+const port = process.env.PORT || 8800
 app.use('/', (req, res) =>(
     res.send('Backend server is running')
 ))
@@ -54,7 +54,7 @@ app.use((err, req, res, next)=>{
     return res.status(errorStatus).send(errorMessage)
 })
 
-app.listen(8800, () => {
+app.listen(port, () => {
     connect()
 console.log('Backend server is running!')
 })
