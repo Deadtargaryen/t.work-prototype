@@ -19,9 +19,6 @@
     "env": {
       "MONGO": "mongodb+srv://mannyetukudoh:manny123@db-demo.do0az8y.mongodb.net/?retryWrites=true&w=majority&dbname=twork",
       "PORT": "8800"
-    },
-    "functions": {
-      "maxDuration": 25
     }
   }
   
