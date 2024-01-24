@@ -25,6 +25,10 @@ const connect = async ()=>{
     }
 }
 
+app.use('/', (req, res) =>(
+    res.send('Backend server is running')
+))
+
 app.use(cors({
 origin:'http://localhost:5173', 
 credentials:true
