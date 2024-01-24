@@ -1,4 +1,4 @@
-import createError from '../api/utils/createError.js'
+import createError from '../utils/createError.js'
 import jwt from 'jsonwebtoken';
 
 

@@ -1,5 +1,5 @@
-import User from '../../models/user.model.jsl.js'
-import createError from '../../utils/createError.jsr.js'
+import User from '../models/user.model.js'
+import createError from '../utils/createError.js'
 
 export const deleteUser = async (req, res, next)=>{
 
