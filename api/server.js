@@ -25,9 +25,6 @@ const connect = async ()=>{
     }
 }
 const port = process.env.PORT || 8800
-app.use('/', (req, res) =>(
-    res.send('Backend server is running')
-))
 
 app.use(cors({
 origin:'http://localhost:5173', 
