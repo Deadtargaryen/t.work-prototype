@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const newRequest = axios.create({
-    baseURL:'https://t-work-api.vercel.app:8800/api', 
+    baseURL:'https://t-work-api.vercel.app/api', 
     withCredentials: true,
 })
 

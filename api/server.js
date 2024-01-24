@@ -27,7 +27,7 @@ const connect = async ()=>{
 const port = process.env.PORT || 8800
 
 app.use(cors({
-origin:'http://localhost:5173', 
+origin:['http://localhost:5173', 'https://t-work-prototype.vercel.app/'], 
 credentials:true
 }))
 // Handle preflight requests
