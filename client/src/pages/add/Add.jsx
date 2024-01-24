@@ -64,7 +64,7 @@ import { useNavigate } from 'react-router-dom'
       const handleSubmit = (e) =>{
         e.preventDefault()
         mutation.mutate(state)
-        // navigate('/mygigs')
+        navigate('/mygigs')
       }
 
       return (
