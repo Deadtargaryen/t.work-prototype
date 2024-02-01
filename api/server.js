@@ -26,6 +26,13 @@ const connect = async () => {
 
 const port = process.env.PORT || 8800;
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://t-work-prototype.vercel.app');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+  });
+
 // Enable CORS for all routes
 const corsOptions = {
     origin: 'https://t-work-prototype.vercel.app',
