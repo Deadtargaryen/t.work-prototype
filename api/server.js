@@ -27,16 +27,21 @@ const connect = async () => {
 const port = process.env.PORT || 8800;
 
 // Enable CORS for all routes
-app.use(cors({
+const corsOptions = {
     origin: 'https://t-work-prototype.vercel.app',
     credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
 
 // Handle preflight requests
-app.options('*', cors());
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
+
+// Apply CORS middleware before your routes
+app.use('/api', cors(corsOptions));
 
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);
