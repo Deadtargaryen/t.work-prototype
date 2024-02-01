@@ -38,9 +38,6 @@ app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
 
-// Apply CORS middleware before your routes
-app.use('/api', cors());
-
 app.use('/api/users', userRoute);
 app.use('/api/auth', authRoute);
 app.use('/api/gigs', gigRoute);
