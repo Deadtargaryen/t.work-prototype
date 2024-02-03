@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 // Enable CORS for all routes
 const corsOptions = {
-    origin: 'https://t-work-prototype.vercel.app',
+    origin: 'http://localhost:5173',
     credentials: true,
 };
 

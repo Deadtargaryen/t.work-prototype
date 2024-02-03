@@ -97,7 +97,7 @@ import { useNavigate } from 'react-router-dom'
                   </div>
                 </div>
                   <button onClick={handleUpload}>
-                  {uploading ? 'uploading' : 'upload'}
+                  {uploading ? 'upload' : 'uploading'}
                   </button>
                 <label htmlFor="">Description</label>
                 <textarea name="desc" 
