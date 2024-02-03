@@ -42,7 +42,7 @@ const Orders = () => {
   return (
     <div className='orders'>
       {isLoading ? (
-        'loading'
+        'Checking for Orders...'
         ) : error ? (
           'error'
           ) : (

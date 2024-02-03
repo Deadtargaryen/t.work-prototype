@@ -34,7 +34,7 @@ const Messages = () => {
   return (
     <div className="messages">
       {isLoading ? (
-        "loading"
+        "Checking for messages..."
       ) : error ? (
         "error"
       ) : (

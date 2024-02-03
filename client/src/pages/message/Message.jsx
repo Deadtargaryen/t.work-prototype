@@ -40,7 +40,7 @@ const Message = () => {
           <Link to="/messages">Messages</Link> &gt; {currentUser.username} &gt;
         </span>
         {isLoading ? (
-          "loading"
+          "loading messages..."
         ) : error ? (
           "error"
         ) : (
