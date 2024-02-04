@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import upload from "../../utils/upload.js";
 import "./Register.scss";
 import newRequest from "../../utils/newRequest.js";
@@ -38,13 +40,19 @@ function Register() {
         ...user,
         img: url,
       });
-      navigate('/')
+       // Display success notification
+       toast.success('Registration successful! Redirecting...', {
+        onClose: () => navigate('/login'), // Redirect after the notification is closed
+      });
     } catch (err) {
       console.log(err)
+      // Display error notification
+      toast.error('Registration Unsuccessful! Please Verify all credentials.');
     }
   };
   return (
     <div className="register">
+    <ToastContainer />
       <form onSubmit={handleSubmit}>
         <div className="left">
           <h1>Create a new account</h1>
